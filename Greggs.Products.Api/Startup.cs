@@ -1,3 +1,6 @@
+using Greggs.Products.Api.DataAccess;
+using Greggs.Products.Api.Models;
+using Greggs.Products.Api.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,6 +15,8 @@ public class Startup
         services.AddControllers();
 
         services.AddSwaggerGen();
+        services.AddScoped<IProductService, ProductService>()
+            .AddScoped<IDataAccess<Product>, ProductAccess>();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
