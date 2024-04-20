@@ -22,7 +22,7 @@ public class ProductController : ControllerBase
         _productService = productService;
     }
 
-    [HttpGet]
+    [HttpGet("list")]
     public IEnumerable<Product> Get(int pageStart = 0, int pageSize = 5)
     {
         IEnumerable<Product> products = _productService.ProductList(pageStart, pageSize);
